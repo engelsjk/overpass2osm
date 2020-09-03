@@ -43,12 +43,10 @@ type Member struct {
 
 // UnmarshalOverpass will unmarshal the JSON data into an Overpass object.
 func UnmarshalOverpass(data []byte) (*Overpass, error) {
-
 	ovp := &Overpass{}
 	err := json.Unmarshal(data, ovp)
 	if err != nil {
 		return nil, err
 	}
-
 	return ovp, nil
 }
