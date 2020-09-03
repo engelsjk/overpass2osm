@@ -1,15 +1,31 @@
-package ovptogeojson
+package overpass2osm
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"os"
 	"testing"
+
+	"github.com/paulmach/osm/osmgeojson"
 )
 
 func TestConvert(t *testing.T) {
 	ovp := loadOverpass(t, "testdata/overpass.json")
-	_ = ovp
+	o, err := Convert(ovp, IgnoreMissingChildren(true))
+	if err != nil {
+		t.Fatalf("unable to convert overpass to osm: %v", err)
+	}
+
+	fc, err := osmgeojson.Convert(o, osmgeojson.NoMeta(true), osmgeojson.NoRelationMembership(true))
+	if err != nil {
+		t.Fatalf("unable to marshal osm to json: %v", err)
+	}
+
+	gj, _ := json.MarshalIndent(fc, "", " ")
+	fmt.Println(string(gj))
+
+	// _ = ioutil.WriteFile("out.geojson", gj, 0644)
 }
 
 func loadOverpass(t testing.TB, filename string) *Overpass {
