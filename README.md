@@ -84,4 +84,4 @@ The resulting GeoJSON string should now be a direct representation of the Overpa
 
 ## Detail
 
-This overpass2osm package utilizes the [paulmach/osm/annotate](https://github.com/paulmach/osm/tree/master/annotate) sub-package to convert the Overpass type defined in this package into an osm.OSM object. It includes the same options available in [paulmach/osm/annotate](https://github.com/paulmach/osm/tree/master/annotate).
+This overpass2osm package utilizes the [paulmach/osm/annotate](https://github.com/paulmach/osm/tree/master/annotate) sub-package to convert the Overpass type defined in this package into an ```*osm.OSM``` object. It includes the same options available in [paulmach/osm/annotate](https://github.com/paulmach/osm/tree/master/annotate).
