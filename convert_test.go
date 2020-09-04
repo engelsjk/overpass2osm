@@ -25,6 +25,8 @@ func TestConvert(t *testing.T) {
 	gj, _ := json.MarshalIndent(fc, "", " ")
 	fmt.Println(string(gj))
 
+	// TODO: validate resulting GeoJSON against expected string
+
 	// _ = ioutil.WriteFile("out.geojson", gj, 0644)
 }
 
